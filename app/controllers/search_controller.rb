@@ -1,9 +1,7 @@
 class SearchController < ApplicationController
   def index
-    require 'pry';binding.pry
-    @nation = params[:nation]
-    if @nation
-      
-    end
+    @nation = params[:nation].gsub('+', ' ').capitalize
+    service = CharactersService.new
+    @characters = service.nation_total_number(params[:nation])
   end
 end

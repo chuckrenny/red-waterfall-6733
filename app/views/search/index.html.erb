@@ -1,2 +1,12 @@
-<h1><%= @nation.upcase %></h1>
-<p>Total Number for <%= @nation.upcase %>: </p>
+<h1>Search Results for <%= @nation %></h1>
+<br>
+<p>Total Number for <%= @nation %>: <%= @characters.count %></p>
+
+<% @characters.first(25).each do |character| %>
+  <div class="character">
+    <h2>Name: <%= character[:name] %></h2>
+    <p>Image Tag: <%= image_tag(character[:photoUrl]) if character[:photoUrl].present? %><p>
+    <p>Allies: <%= character[:allies] %></p>
+    <p>Enemies: <%= character[:enemies] %></p>
+  </div>
+<% end %>
