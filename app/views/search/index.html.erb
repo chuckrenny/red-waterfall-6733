@@ -1,12 +1,13 @@
 <h1>Search Results for <%= @nation %></h1>
 <br>
-<p>Total Number for <%= @nation %>: <%= @characters.count %></p>
+<p><strong>Total Number for <%= @nation %>: <%= @characters.count %></strong></p>
 
 <% @characters.first(25).each do |character| %>
   <div class="character">
     <h2>Name: <%= character[:name] %></h2>
     <p>Image Tag: <%= image_tag(character[:photoUrl]) if character[:photoUrl].present? %><p>
-    <p>Allies: <%= character[:allies] %></p>
-    <p>Enemies: <%= character[:enemies] %></p>
+    <p>Allies: <%= character[:allies].join %></p>
+    <p>Enemies: <%= character[:enemies].join %></p>
+    <p>Affiliations: <%= character[:affiliation] %></p>
   </div>
 <% end %>

@@ -32,10 +32,11 @@ RSpec.describe 'Search for Fire Nation members', type: :feature do
   end
 
   it 'displays member attributes for the first 25' do
-    require 'pry';binding.pry
-    expect(page).to have_content("Name: #{@characters.first.name}")
-    expect(page).to have_content("Image Tag: #{@characters.first.photoUrl}")
-    expect(page).to have_content("Allies: #{@characters.first.allies}")
-    expect(page).to have_content("Enemies: #{@characters.first.enemies}")
+    # require 'pry';binding.pry
+    expect(page).to have_content("Name: Bully guard")
+    expect(page).to have_css("img[src*='https://vignette.wikia.nocookie.net/avatar/images/0/02/Bully_guard.png/revision/latest?cb=20120702232626']")
+    expect(page).to have_content("Allies: Azula")
+    expect(page).to have_content("Enemies: Sokka")
+    expect(page).to have_content("Affiliations: Fire Nation")
   end
 end
